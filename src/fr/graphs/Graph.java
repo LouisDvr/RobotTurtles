@@ -11,7 +11,7 @@ public class Graph {
     // based on https://stackabuse.com/graphs-in-java-representing-graphs-in-code/
 
     // Each node maps to a list of all his neighbors
-    // LinkedList is better than ArrayList for add and remove; it is also lighter in memory
+    // LinkedList is better than ArrayList for add and remove
     private HashMap<Node, LinkedList<Node>> adjacencyMap;
     private boolean directed;
 

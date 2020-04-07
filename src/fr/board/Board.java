@@ -4,6 +4,7 @@ import fr.graphs.Graph;
 import fr.graphs.Node;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Board {
 
@@ -149,6 +150,37 @@ public class Board {
         boardGraph.get(71).setName(Piece.JEWEL.toString());
         squaresMap.replace(76, Piece.JEWEL.toString());
         boardGraph.get(76).setName(Piece.JEWEL.toString());
+    }
+
+    public void updateSquare(int position, Piece piece) {
+        squaresMap.put(position, piece.toString());
+        boardGraph.get(position).setName(piece.toString());
+        if (piece.equals(Piece.STONEWALL)) {
+            putStoneWallHelper(position);
+        }
+    }
+
+    private void putStoneWallHelper(int position) {
+        //aims at removing the edges between the new wall and the adjacent nodes of the graph
+
+        Node newStoneWall = boardGraph.get(position);
+        LinkedList<Node> neighbours = boardGraph.getNeighbours(newStoneWall);
+        while (!neighbours.isEmpty()) {
+            boardGraph.removeEdge(newStoneWall, neighbours.get(0));
+        }
+    }
+
+    public boolean pathToJewel(int position) {
+        //checks if there is a path to a jewel from the selected position
+
+        LinkedList<Node> pathsAvailable;
+        pathsAvailable = boardGraph.breadthFirstSearch(boardGraph.get(position));
+        for (Node node : pathsAvailable) {
+            if (node.getName().equals(Piece.JEWEL.toString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
