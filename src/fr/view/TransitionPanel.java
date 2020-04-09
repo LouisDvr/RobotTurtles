@@ -11,11 +11,11 @@ class TransitionPanel {
 
     TransitionPanel() {
         configLabel();
-        panel.add(Box.createRigidArea(new Dimension(0, 45)));
+        panel.add(Box.createRigidArea(new Dimension(1, 45)));
         panel.add(label);
-        panel.add(Box.createRigidArea(new Dimension(0, 415)));
+        panel.add(Box.createRigidArea(new Dimension(1, 415)));
         panel.add(button);
-        panel.add(Box.createRigidArea(new Dimension(0, 120)));
+        panel.add(Box.createRigidArea(new Dimension(1, 120)));
     }
 
     private void configLabel() {

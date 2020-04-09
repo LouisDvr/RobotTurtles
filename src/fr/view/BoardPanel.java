@@ -40,19 +40,19 @@ public class BoardPanel {
         positionPanel.setLayout(new BorderLayout());
 
         JPanel left = new JPanel();
-        left.setSize(28, 0);
+        left.setSize(28, 1);
         positionPanel.add(left, BorderLayout.WEST);
 
         JPanel right = new JPanel();
-        right.setSize(28, 0);
+        right.setSize(28, 1);
         positionPanel.add(right, BorderLayout.EAST);
 
         JPanel top = new JPanel();
-        top.setSize(0, 28);
+        top.setSize(1, 28);
         positionPanel.add(top, BorderLayout.NORTH);
 
         JPanel bottom = new JPanel();
-        bottom.setSize(0, 28);
+        bottom.setSize(1, 28);
         positionPanel.add(bottom, BorderLayout.SOUTH);
 
         positionPanel.add(piecesPanel, BorderLayout.CENTER);
