@@ -18,4 +18,20 @@ public enum Piece {
         return name;
     }
 
+    public static Piece getPieceByName(String name) {
+
+        switch (name) {
+            case "Jewel":
+                return Piece.JEWEL;
+            case "StoneWall":
+                return Piece.STONEWALL;
+            case "IceWall":
+                return Piece.ICEWALL;
+            case "Empty":
+                return EMPTY;
+            default:
+                return Piece.TURTLE;
+        }
+    }
+
 }

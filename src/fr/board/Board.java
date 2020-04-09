@@ -152,10 +152,18 @@ public class Board {
         boardGraph.get(76).setName(Piece.JEWEL.toString());
     }
 
-    public void updateSquare(int position, Piece piece) {
-        squaresMap.put(position, piece.toString());
-        boardGraph.get(position).setName(piece.toString());
-        if (piece.equals(Piece.STONEWALL)) {
+    public void updateSquare(int position, String name) {
+        if (name.substring(0,6).equals("Player")) {
+            for (int key : squaresMap.keySet()) {
+                if (squaresMap.get(key).equals(name)) {
+                    squaresMap.put(key, Piece.EMPTY.toString());
+                    break;
+                }
+            }
+        }
+        squaresMap.put(position, name);
+        boardGraph.get(position).setName(Piece.getPieceByName(name).toString());
+        if (name.equals(Piece.STONEWALL.toString())) {
             putStoneWallHelper(position);
         }
     }
