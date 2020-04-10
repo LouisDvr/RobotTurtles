@@ -4,7 +4,6 @@ import fr.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 
 public class GUI {
 
@@ -14,6 +13,7 @@ public class GUI {
     private BoardPanel boardPanel = new BoardPanel();
     private ActionPanel actionPanel = new ActionPanel();
     private CardPanel cardPanel = new CardPanel();
+    private JLabel dialogLabel = new JLabel("Default text");
 
     private Controller controller;
 
@@ -62,10 +62,19 @@ public class GUI {
         gamePanel.add(boardPanel.getPanel(), BorderLayout.CENTER);
         gamePanel.add(actionPanel.getPanel(), BorderLayout.EAST);
         gamePanel.add(cardPanel.getPanel(), BorderLayout.SOUTH);
+        gamePanel.add(dialogLabel, BorderLayout.NORTH);
+    }
+
+    private void configDialogLabel() {
+        dialogLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
+        dialogLabel.setHorizontalAlignment(JLabel.CENTER);
     }
 
     private void updateBoard() {
         boardPanel.updatePieces(controller.getBoard(), controller.getPlayersDirections());
     }
 
+    private void updateMessage(String msg) {
+        dialogLabel.setText(msg);
+    }
 }
