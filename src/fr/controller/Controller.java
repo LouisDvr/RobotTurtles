@@ -12,10 +12,12 @@ public class Controller {
     public static Board board;
     private static int nbOfPlayers;
     private ArrayList<Player> listOfPlayers = new ArrayList<>();
+    private Player currentPlayer;
 
 
     public Controller(int nbOfPlayers) {
         initGame(nbOfPlayers);
+        currentPlayer = listOfPlayers.get(0);
     }
 
     public void initGame(int nbOfPlayers) {

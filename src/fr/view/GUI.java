@@ -12,6 +12,8 @@ public class GUI {
     private TransitionPanel transitionPanel = new TransitionPanel();
     private JPanel gamePanel = new JPanel();
     private BoardPanel boardPanel = new BoardPanel();
+    private ActionPanel actionPanel = new ActionPanel();
+    private CardPanel cardPanel = new CardPanel();
 
     private Controller controller;
 
@@ -58,6 +60,8 @@ public class GUI {
     private void configGamePanel() {
         gamePanel.setLayout(new BorderLayout());
         gamePanel.add(boardPanel.getPanel(), BorderLayout.CENTER);
+        gamePanel.add(actionPanel.getPanel(), BorderLayout.EAST);
+        gamePanel.add(cardPanel.getPanel(), BorderLayout.SOUTH);
     }
 
     private void updateBoard() {

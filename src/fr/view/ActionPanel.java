@@ -23,4 +23,8 @@ public class ActionPanel {
         actionPanel.add(pass);
         actionPanel.add(Box.createRigidArea(new Dimension(1, 100)));
     }
+
+    Box getPanel() {
+        return actionPanel;
+    }
 }
