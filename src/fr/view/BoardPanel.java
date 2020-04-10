@@ -14,8 +14,8 @@ public class BoardPanel {
         configBoardPanel();
         globalPanel.add(boardPanel);
         initPiecesPanel();
-        JPanel adjustedFeatures = adjustPiecesPanel();
-        globalPanel.add(adjustedFeatures);
+        JPanel adjustedPanel = adjustPiecesPanel();
+        globalPanel.add(adjustedPanel);
     }
 
     JPanel getPanel() {
@@ -69,9 +69,15 @@ public class BoardPanel {
         for (int key : squaresMap.keySet()) {
             gbc.gridx = key % 10;
             gbc.gridy = key / 10;
-            piecesPanel.add(new GraphicPiece(squaresMap.get(key)));
+            String name = squaresMap.get(key);
+            if (name.substring(0,2).equals("Pl")) piecesPanel.add(new GraphicPiece(name, getPlayerDirection(name)));
+            else piecesPanel.add(new GraphicPiece(name));
         }
         piecesPanel.validate();
+    }
+
+    private String getPlayerDirection(String name) {
+        return "South"; // A CHANGER !!!
     }
 
 
@@ -85,25 +91,15 @@ public class BoardPanel {
             putImage(name);
         }
 
+        GraphicPiece(String name, String direction) {
+            piece.setPreferredSize(new Dimension(58, 58));
+            piece.setLayout(new BorderLayout());
+            putImage(name, direction);
+        }
+
         private void putImage(String name) {
             JLabel piecePic;
             switch (name) {
-                case "Player 1":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/BlueTurtle.png"));
-                    piece.add(piecePic, BorderLayout.CENTER);
-                    break;
-                case "Player 2":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/RedTurtle.png"));
-                    piece.add(piecePic, BorderLayout.CENTER);
-                    break;
-                case "Player 3":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/MagentaTurtle.png"));
-                    piece.add(piecePic, BorderLayout.CENTER);
-                    break;
-                case "Player 4":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/GreenTurtle.png"));
-                    piece.add(piecePic, BorderLayout.CENTER);
-                    break;
                 case "StoneWall":
                     piecePic = new JLabel(new ImageIcon("images/walls/StoneWall.png"));
                     piece.add(piecePic, BorderLayout.CENTER);
@@ -117,7 +113,30 @@ public class BoardPanel {
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 default:
-                    setOpaque(false);
+                    break;
+            }
+        }
+
+        private void putImage(String name, String direction) {
+            JLabel piecePic;
+            switch (name) {
+                case "Player 1":
+                    piecePic = new JLabel(new ImageIcon("images/turtles/blueTurtle/BlueTurtle"+direction+".png"));
+                    piece.add(piecePic, BorderLayout.CENTER);
+                    break;
+                case "Player 2":
+                    piecePic = new JLabel(new ImageIcon("images/turtles/redTurtle/RedTurtle"+direction+".png"));
+                    piece.add(piecePic, BorderLayout.CENTER);
+                    break;
+                case "Player 3":
+                    piecePic = new JLabel(new ImageIcon("images/turtles/magentaTurtle/MagentaTurtle"+direction+".png"));
+                    piece.add(piecePic, BorderLayout.CENTER);
+                    break;
+                case "Player 4":
+                    piecePic = new JLabel(new ImageIcon("images/turtles/greenTurtle/GreenTurtle"+direction+".png"));
+                    piece.add(piecePic, BorderLayout.CENTER);
+                    break;
+                default:
                     break;
             }
         }
