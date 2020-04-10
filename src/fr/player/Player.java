@@ -35,6 +35,10 @@ public class Player {
     }
 
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() { return position; }
 
     public void updatePosition(int  position) {

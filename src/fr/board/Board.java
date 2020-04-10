@@ -153,7 +153,7 @@ public class Board {
     }
 
     public void updateSquare(int position, String name) {
-        if (name.substring(0,6).equals("Player")) {
+        if (name.substring(0,3).equals("Pla")) {
             for (int key : squaresMap.keySet()) {
                 if (squaresMap.get(key).equals(name)) {
                     squaresMap.put(key, Piece.EMPTY.toString());
