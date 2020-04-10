@@ -1,4 +1,4 @@
-package fr.graphs;
+package fr.model.graphs;
 
 public class Node {
     // based on https://stackabuse.com/graphs-in-java-representing-graphs-in-code/
@@ -18,7 +18,7 @@ public class Node {
     public void setName(String name) { this.name = name; }
 
     public boolean equals(Object o) {
-        return o instanceof fr.graphs.Node && ((fr.graphs.Node) o).getNumber() == n && ((fr.graphs.Node) o).getName().equals(name);
+        return o instanceof fr.model.graphs.Node && ((fr.model.graphs.Node) o).getNumber() == n && ((fr.model.graphs.Node) o).getName().equals(name);
     }
 
     public int hashCode() {

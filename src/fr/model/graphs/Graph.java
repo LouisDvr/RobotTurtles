@@ -1,6 +1,4 @@
-package fr.graphs;
-
-import fr.graphs.Node;
+package fr.model.graphs;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

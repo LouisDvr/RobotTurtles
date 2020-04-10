@@ -1,4 +1,4 @@
-package fr.player;
+package fr.model.player;
 
 import java.util.ArrayDeque;
 

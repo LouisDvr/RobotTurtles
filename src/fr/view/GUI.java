@@ -1,5 +1,7 @@
 package fr.view;
 
+import fr.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -11,8 +13,11 @@ public class GUI {
     private JPanel gamePanel = new JPanel();
     private BoardPanel boardPanel = new BoardPanel();
 
+    private Controller controller;
 
-    public GUI() {
+
+    public GUI(Controller controller) {
+        this.controller = controller;
         configFrame();
         setTransitionPanel(1);
         frame.setContentPane(transitionPanel.getPanel());
@@ -55,7 +60,8 @@ public class GUI {
         gamePanel.add(boardPanel.getPanel(), BorderLayout.CENTER);
     }
 
-    private void updateBoard(HashMap<Integer, String> squaresMap) {
-        boardPanel.updatePieces(squaresMap);
+    private void updateBoard() {
+        boardPanel.updatePieces(controller.getBoard(), controller.getPlayersDirections());
     }
+
 }

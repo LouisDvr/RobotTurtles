@@ -1,6 +1,4 @@
-package fr.player;
-
-import fr.board.Board;
+package fr.model.player;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package fr.board;
+package fr.model.board;
 
 public enum Piece {
     TURTLE("Turtle"),

@@ -1,8 +1,11 @@
-import fr.board.Board;
-import fr.player.Card;
-import fr.player.Player;
+package fr.controller;
+
+import fr.model.board.Board;
+import fr.model.player.Card;
+import fr.model.player.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
 
@@ -29,12 +32,15 @@ public class Controller {
 
     private void discard(Player player, Card card) { player.discard(card); }
 
-    public String getPlayerDirection(String name) {
+    public ArrayList<String> getPlayersDirections() {
+        ArrayList<String> directions = new ArrayList<>();
         for (Player player : listOfPlayers) {
-            if (player.getName().equals(name)) {
-                return player.getDirection().toString();
-            }
+            directions.add(player.getDirection().toString()); // the players are always in ascending order so the first direction will be player1's direction and so on
         }
-        return "South";
+        return directions;
+    }
+
+    public HashMap<Integer, String> getBoard() {
+        return board.getSquaresMap();
     }
 }

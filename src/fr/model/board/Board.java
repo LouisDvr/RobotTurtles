@@ -1,7 +1,7 @@
-package fr.board;
+package fr.model.board;
 
-import fr.graphs.Graph;
-import fr.graphs.Node;
+import fr.model.graphs.Graph;
+import fr.model.graphs.Node;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -150,6 +150,10 @@ public class Board {
         boardGraph.get(71).setName(Piece.JEWEL.toString());
         squaresMap.replace(76, Piece.JEWEL.toString());
         boardGraph.get(76).setName(Piece.JEWEL.toString());
+    }
+
+    public HashMap<Integer, String> getSquaresMap() {
+        return squaresMap;
     }
 
     public void updateSquare(int position, String name) {

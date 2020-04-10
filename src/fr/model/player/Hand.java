@@ -1,4 +1,4 @@
-package fr.player;
+package fr.model.player;
 
 import java.util.ArrayList;
 import java.util.Comparator;

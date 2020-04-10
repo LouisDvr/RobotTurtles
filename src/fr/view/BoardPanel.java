@@ -2,6 +2,7 @@ package fr.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BoardPanel {
@@ -60,7 +61,7 @@ public class BoardPanel {
         return positionPanel;
     }
 
-    void updatePieces(HashMap<Integer, String> squaresMap) {
+    void updatePieces(HashMap<Integer, String> squaresMap, ArrayList<String> directions) {
         piecesPanel.removeAll();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = 1;
@@ -70,18 +71,17 @@ public class BoardPanel {
             gbc.gridx = key % 10;
             gbc.gridy = key / 10;
             String name = squaresMap.get(key);
-            if (name.substring(0,2).equals("Pl")) piecesPanel.add(new GraphicPiece(name, getPlayerDirection(name)));
+            if (name.substring(0,2).equals("Pl")) {
+                int playerNumber = name.charAt(name.length()-1);
+                piecesPanel.add(new GraphicPiece(name, directions.get(playerNumber-1)));
+            }
             else piecesPanel.add(new GraphicPiece(name));
         }
         piecesPanel.validate();
     }
 
-    private String getPlayerDirection(String name) {
-        return "South"; // A CHANGER !!!
-    }
 
-
-    private class GraphicPiece extends JPanel {
+    private static class GraphicPiece extends JPanel {
 
         private JPanel piece = new JPanel();
 
