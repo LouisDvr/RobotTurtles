@@ -8,6 +8,7 @@ import java.awt.*;
 public class GUI {
 
     private JFrame frame = new JFrame();
+    private TitleScreen titleScreen = new TitleScreen();
     private TransitionPanel transitionPanel = new TransitionPanel();
     private JPanel gamePanel = new JPanel();
     private BoardPanel boardPanel = new BoardPanel();
@@ -21,8 +22,8 @@ public class GUI {
     public GUI(Controller controller) {
         this.controller = controller;
         configFrame();
-        setTransitionPanel(1);
-        frame.setContentPane(transitionPanel.getPanel());
+        configGamePanel();
+        frame.setContentPane(titleScreen.getPanel());
         frame.setVisible(true);
     }
 
@@ -32,6 +33,15 @@ public class GUI {
         frame.setSize(1028, 680);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+    }
+
+    private void configGamePanel() {
+        gamePanel.setLayout(new BorderLayout());
+        gamePanel.add(boardPanel.getPanel(), BorderLayout.CENTER);
+        gamePanel.add(actionPanel.getPanel(), BorderLayout.EAST);
+        gamePanel.add(cardPanel.getPanel(), BorderLayout.SOUTH);
+        configDialogLabel();
+        gamePanel.add(dialogLabel, BorderLayout.NORTH);
     }
 
     private void setTransitionPanel(int playerNumber) {
@@ -55,14 +65,6 @@ public class GUI {
             default:
                 break;
         }
-    }
-
-    private void configGamePanel() {
-        gamePanel.setLayout(new BorderLayout());
-        gamePanel.add(boardPanel.getPanel(), BorderLayout.CENTER);
-        gamePanel.add(actionPanel.getPanel(), BorderLayout.EAST);
-        gamePanel.add(cardPanel.getPanel(), BorderLayout.SOUTH);
-        gamePanel.add(dialogLabel, BorderLayout.NORTH);
     }
 
     private void configDialogLabel() {
