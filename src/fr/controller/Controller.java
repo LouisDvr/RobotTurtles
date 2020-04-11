@@ -15,9 +15,8 @@ public class Controller {
     private Player currentPlayer;
 
 
-    public Controller(int nbOfPlayers) {
-        initGame(nbOfPlayers);
-        currentPlayer = listOfPlayers.get(0);
+    public Controller() {
+
     }
 
     public void initGame(int nbOfPlayers) {
@@ -28,6 +27,7 @@ public class Controller {
         for (int i=0; i<nbOfPlayers; ++i) {
             listOfPlayers.add(new Player());
         }
+        currentPlayer = listOfPlayers.get(0);
     }
 
     private void refillHand(Player player) { player.refillHand(); }
@@ -45,4 +45,9 @@ public class Controller {
     public HashMap<Integer, String> getBoard() {
         return board.getSquaresMap();
     }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
 }
