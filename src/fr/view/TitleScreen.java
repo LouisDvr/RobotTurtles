@@ -70,6 +70,10 @@ public class TitleScreen {
         return titleScreen;
     }
 
+    int getNbOfPlayers() {
+        return nbOfPlayers;
+    }
+
 
     private class B2PListener implements ActionListener {
 

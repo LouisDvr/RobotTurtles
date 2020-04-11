@@ -2,6 +2,7 @@ package fr.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 class TransitionPanel {
 
@@ -9,12 +10,13 @@ class TransitionPanel {
     private JLabel label = new JLabel();
     private JButton button = new JButton();
 
-    TransitionPanel() {
+    TransitionPanel(ActionListener actionListener) {
         configLabel();
         panel.add(Box.createRigidArea(new Dimension(1, 45)));
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(1, 415)));
         configButton();
+        button.addActionListener(actionListener);
         panel.add(button);
         panel.add(Box.createRigidArea(new Dimension(1, 70)));
     }

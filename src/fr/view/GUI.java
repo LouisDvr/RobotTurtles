@@ -4,12 +4,14 @@ import fr.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUI {
 
     private JFrame frame = new JFrame();
     private TitleScreen titleScreen = new TitleScreen();
-    private TransitionPanel transitionPanel = new TransitionPanel();
+    private TransitionPanel transitionPanel = new TransitionPanel(new TransitionPanelListener());
     private JPanel gamePanel = new JPanel();
     private BoardPanel boardPanel = new BoardPanel();
     private ActionPanel actionPanel = new ActionPanel();
@@ -78,5 +80,13 @@ public class GUI {
 
     private void updateMessage(String msg) {
         dialogLabel.setText(msg);
+    }
+
+    private class TransitionPanelListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            frame.setContentPane(gamePanel);
+        }
     }
 }
