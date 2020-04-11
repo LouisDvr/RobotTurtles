@@ -21,30 +21,30 @@ public class CardPanel {
     CardPanel() {
         //adds the cards
         configCards();
-        cardPanel.add(Box.createRigidArea(new Dimension(25, 1)));
+        cardPanel.add(Box.createGlue());
         cardPanel.add(card1);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
         cardPanel.add(card2);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
         cardPanel.add(card3);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
         cardPanel.add(card4);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
         cardPanel.add(card5);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
 
         //adds the walls
         Box walls = Box.createVerticalBox();
-        walls.add(configWallButton(stoneWall, "images/walls/StoneWall.png", nbStoneWall));
-        walls.add(Box.createRigidArea(new Dimension(150, 12)));
-        walls.add(configWallButton(iceWall, "images/walls/IceWall.png", nbIceWall));
+        walls.add(configWallButton(stoneWall, "src/fr/view/images/walls/StoneWall.png", nbStoneWall));
+        walls.add(Box.createGlue());
+        walls.add(configWallButton(iceWall, "src/fr/view/images/walls/IceWall.png", nbIceWall));
         cardPanel.add(walls);
-        cardPanel.add(Box.createRigidArea(new Dimension(23, 1)));
+        cardPanel.add(Box.createGlue());
 
         //adds the validate button
         validate.setPreferredSize(new Dimension(115, 60));
         cardPanel.add(validate);
-        cardPanel.add(Box.createRigidArea(new Dimension(25, 1)));
+        cardPanel.add(Box.createGlue());
     }
 
     private void configCards() {
@@ -108,16 +108,16 @@ public class CardPanel {
         JLabel cardPic;
         switch (cardType) {
             case "Forward":
-                cardPic = new JLabel(new ImageIcon("images/cards/BlueCard.png"));
+                cardPic = new JLabel(new ImageIcon("src/fr/view/images/cards/BlueCard.png"));
                 break;
             case "Left":
-                cardPic = new JLabel(new ImageIcon("images/cards/YellowCard.png"));
+                cardPic = new JLabel(new ImageIcon("src/fr/view/images/cards/YellowCard.png"));
                 break;
             case "Right":
-                cardPic = new JLabel(new ImageIcon("images/cards/PurpleCard.png"));
+                cardPic = new JLabel(new ImageIcon("src/fr/view/images/cards/PurpleCard.png"));
                 break;
             case "Laser":
-                cardPic = new JLabel(new ImageIcon("images/cards/LaserCard.png"));
+                cardPic = new JLabel(new ImageIcon("src/fr/view/images/cards/LaserCard.png"));
                 break;
             default:
                 cardPic = new JLabel("Erreur !");

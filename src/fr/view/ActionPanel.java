@@ -13,15 +13,15 @@ public class ActionPanel {
 
     ActionPanel() {
         actionPanel.setBackground(new Color(54, 236, 80));
-        actionPanel.add(Box.createRigidArea(new Dimension(1, 100)));
+        actionPanel.add(Box.createGlue());
         actionPanel.add(addCards);
-        actionPanel.add(Box.createRigidArea(new Dimension(1, 40)));
+        actionPanel.add(Box.createGlue());
         actionPanel.add(executeProgram);
-        actionPanel.add(Box.createRigidArea(new Dimension(1, 40)));
+        actionPanel.add(Box.createGlue());
         actionPanel.add(buildWall);
-        actionPanel.add(Box.createRigidArea(new Dimension(1, 40)));
+        actionPanel.add(Box.createGlue());
         actionPanel.add(pass);
-        actionPanel.add(Box.createRigidArea(new Dimension(1, 100)));
+        actionPanel.add(Box.createGlue());
     }
 
     Box getPanel() {

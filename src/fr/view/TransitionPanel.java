@@ -12,13 +12,13 @@ class TransitionPanel {
 
     TransitionPanel(ActionListener actionListener) {
         configLabel();
-        panel.add(Box.createRigidArea(new Dimension(1, 45)));
+        panel.add(Box.createGlue());
         panel.add(label);
-        panel.add(Box.createRigidArea(new Dimension(1, 415)));
+        panel.add(Box.createGlue());
         configButton();
         button.addActionListener(actionListener);
         panel.add(button);
-        panel.add(Box.createRigidArea(new Dimension(1, 70)));
+        panel.add(Box.createGlue());
     }
 
     private void configLabel() {
@@ -29,7 +29,7 @@ class TransitionPanel {
     private void configButton() {
         button.setPreferredSize(new Dimension(100, 100));
         button.setLayout(new BorderLayout());
-        JLabel pic = new JLabel(new ImageIcon("images/PlayButton.png"));
+        JLabel pic = new JLabel(new ImageIcon("src/fr/view/images/PlayButton.png"));
         button.add(pic, BorderLayout.CENTER);
     }
 

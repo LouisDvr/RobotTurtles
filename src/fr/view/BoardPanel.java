@@ -24,7 +24,7 @@ public class BoardPanel {
     }
 
     private void configBoardPanel() {
-        JLabel backgroundPic = new JLabel(new ImageIcon("images/background.png"));
+        JLabel backgroundPic = new JLabel(new ImageIcon("src/fr/view/images/background.png"));
         boardPanel.setLayout(new BorderLayout());
         boardPanel.add(backgroundPic, BorderLayout.CENTER);
     }
@@ -101,15 +101,15 @@ public class BoardPanel {
             JLabel piecePic;
             switch (name) {
                 case "StoneWall":
-                    piecePic = new JLabel(new ImageIcon("images/walls/StoneWall.png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/walls/StoneWall.png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 case "IceWall":
-                    piecePic = new JLabel(new ImageIcon("images/walls/IceWall.png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/walls/IceWall.png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 case "Jewel":
-                    piecePic = new JLabel(new ImageIcon("images/Jewel.png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/Jewel.png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 default:
@@ -121,19 +121,19 @@ public class BoardPanel {
             JLabel piecePic;
             switch (name) {
                 case "Player 1":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/blueTurtle/BlueTurtle"+direction+".png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/turtles/blueTurtle/BlueTurtle"+direction+".png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 case "Player 2":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/redTurtle/RedTurtle"+direction+".png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/turtles/redTurtle/RedTurtle"+direction+".png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 case "Player 3":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/magentaTurtle/MagentaTurtle"+direction+".png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/turtles/magentaTurtle/MagentaTurtle"+direction+".png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 case "Player 4":
-                    piecePic = new JLabel(new ImageIcon("images/turtles/greenTurtle/GreenTurtle"+direction+".png"));
+                    piecePic = new JLabel(new ImageIcon("src/fr/view/images/turtles/greenTurtle/GreenTurtle"+direction+".png"));
                     piece.add(piecePic, BorderLayout.CENTER);
                     break;
                 default:

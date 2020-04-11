@@ -6,11 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class GUI {
 
     private JFrame frame = new JFrame();
-    private TitleScreen titleScreen = new TitleScreen();
+    private TitleScreen titleScreen = new TitleScreen(new TitleScreenListener());
     private TransitionPanel transitionPanel = new TransitionPanel(new TransitionPanelListener());
     private JPanel gamePanel = new JPanel();
     private BoardPanel boardPanel = new BoardPanel();
@@ -80,6 +82,27 @@ public class GUI {
 
     private void updateMessage(String msg) {
         dialogLabel.setText(msg);
+    }
+
+
+    private class TitleScreenListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent) { }
+
+        @Override
+        public void mousePressed(MouseEvent mouseEvent) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent mouseEvent) { }
+
+        @Override
+        public void mouseEntered(MouseEvent mouseEvent) { }
+
+        @Override
+        public void mouseExited(MouseEvent mouseEvent) { }
     }
 
     private class TransitionPanelListener implements ActionListener {
